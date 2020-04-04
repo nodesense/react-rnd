@@ -1,7 +1,10 @@
 import React from 'react';
 
-import TextInput from '../components/TextInput';
-import SelectInput from '../components/SelectInput';
+import {TextInput} from '@nodesense/core';
+import {SelectInput} from '@nodesense/core';
+
+import {RadioInput} from '@nodesense/core';
+import {CheckboxInput, TextAreaInput, NumberInput} from '@nodesense/core';
 
 import {Formik, Form, Field} from 'formik';
 
@@ -19,7 +22,10 @@ const ManufacturerSchema = Yup.object().shape({
                 // )
                 .required('Required'),
     usergroup_id: Yup.number().required(),
-    description: Yup.string().required()
+    description: Yup.string().required(),
+    userType: Yup.string().required(),
+    enabled: Yup.boolean().required(),
+    employeesCount: Yup.number().required(),
 });
 
 const ManufacturerFormSchema = Yup.object().shape({
@@ -32,8 +38,11 @@ interface ManufacturerProps {
 class ManufacturerModel {
     id: string = '';
     name: string = 'hello';
-    description: string = ''
+    description: string = 'welcome'
     usergroup_id: number = 3;
+    userType: string = "1";
+    enabled: boolean = true;
+    employeesCount: number = 10;
 }
 
 interface ManufacturerState {
@@ -50,6 +59,7 @@ class Manufacturer extends React.Component<ManufacturerProps, ManufacturerState>
                     }
         }
     }
+
     onSubmit = (values: any, actions: any) => {
          console.log("values", values.manufacturer)
          console.log("actions", actions);
@@ -70,8 +80,11 @@ class Manufacturer extends React.Component<ManufacturerProps, ManufacturerState>
                                     <TextInput name="manufacturer.name"
                                             label="Name" />
                                 
-                                    <TextInput name="manufacturer.description"
-                                            label="Description" />
+                                
+                                    <TextAreaInput name="manufacturer.description"
+                                            label="Description"
+                                            placeHolder="Description"
+                                            />
 
                                     <SelectInput name="manufacturer.usergroup_id"
                                                  label="User Group"
@@ -81,6 +94,26 @@ class Manufacturer extends React.Component<ManufacturerProps, ManufacturerState>
                                                                 {_id: 2, text: 'User'}, 
                                                                 {_id: 3, text: 'Staff'},  ] }
                                     />
+
+                                    <RadioInput name="manufacturer.userType" 
+                                                label="User Type"
+                                                 
+                                                options = { [ {id: "1", name: 'Admin'}, 
+                                                                {id: "2", name: 'User'}, 
+                                                                {id: "3", name: 'Staff'} ]}
+
+                                                optionValue="id"
+                                                optionText="name"
+                                                
+                                                />
+
+
+                                    <CheckboxInput name="manufacturer.enabled"
+                                                   label="Is Enabled"
+                                                    />
+
+                                    <NumberInput name="manufacturer.employeesCount"
+                                                label="Employees Count" />
 
                                     <Button type="submit" 
                                             variant="contained" 
@@ -92,6 +125,7 @@ class Manufacturer extends React.Component<ManufacturerProps, ManufacturerState>
                                     </Button>
 
                                     <pre> {JSON.stringify(props.errors)} </pre>
+
                                 </Form>
                              ) }
                 </Formik>
