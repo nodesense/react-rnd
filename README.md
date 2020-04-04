@@ -22,4 +22,12 @@ TODO
 3. TextAreaInput
 
 4. NumberInput
-5. 
+
+
+# Grafana
+
+Panels
+Dashboard Builder
+DataSource idea, apis
+DataSource plugins and etc
+

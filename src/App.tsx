@@ -3,11 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import Manufacturer from './pages/Manufacturer';
 // import Container from './pages/Container';
-
+import DnDGridLayout from './pages/DnDGridLayout';
+import CubePage from './pages/CubePage';
 function App() {
   return (
     <div  >
-       <Manufacturer />
+       <CubePage />
     </div>
   );
 }

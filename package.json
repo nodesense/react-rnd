@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cubejs-client/core": "^0.18.18",
+    "@cubejs-client/react": "^0.18.18",
+    "@grafana/data": "^6.7.2",
+    "@grafana/ui": "^6.7.2",
     "@material-ui/core": "^4.9.8",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -13,7 +17,10 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-grid-layout": "^0.17.1",
+    "@types/recharts": "^1.8.9",
     "@types/yup": "^0.26.34",
+    "antd": "^4.1.0",
     "d3": "^5.15.1",
     "formik": "^2.1.4",
     "lodash": "^4.17.15",
@@ -21,6 +28,7 @@
     "react-dom": "^16.13.1",
     "react-grid-layout": "^0.18.3",
     "react-scripts": "3.4.1",
+    "recharts": "^1.8.5",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
     "redux-thunk": "^2.3.0",
@@ -28,7 +36,7 @@
     "yup": "^0.28.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
